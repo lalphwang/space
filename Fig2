@@ -1,0 +1,263 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 28 15:01:10 2021
+
+@author: Administrator
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Dec 24 15:39:28 2019
+
+@author: Administrator
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Dec 20 10:10:25 2019
+
+@author: Administrator
+"""
+import matplotlib
+import spacepy
+import pandas 
+from pandas import read_csv
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation	
+import numpy as np
+
+plt.figure(figsize=(12, 9))
+
+plt.subplots_adjust(left=0.06, right=0.99, top=0.98, bottom=0.06)
+
+
+#test=open('E:/TEST/FORTRAN/testplasmaframe/Console6/Console6/Bwave.dat',encoding='GB18030')
+pltdata=np.empty(shape=[61,1001,6])
+vpara=np.empty(shape=[61,1001,])
+i=10
+
+plt.subplot(3,4,1)
+number=str('000')
+numbers=list(number)
+
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console1/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-0.75,1.2,r'$\Omega_pt=0$')
+plt.xlim((-1,1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+
+plt.ylabel(r'$V_\perp(V_A)$',fontsize=15,)
+plt.show()
+
+plt.subplot(3,4,2)
+number=str('010')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console1/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-0.75,1.2,r'$\Omega_pt=200$')
+plt.xlim((-1, 1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.show()
+
+plt.subplot(3,4,3)
+number=str('060')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console1/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-0.2,1.2,r'$\Omega_pt=20000$')
+plt.xlim((-2.5, 1.5))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.show()
+
+plt.subplot(3,4,5)
+number=str('000')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console2/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-0.75,1.2,r'$\Omega_pt=0$')
+plt.xlim((-1, 1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+
+plt.ylabel(r'$V_\perp(V_A)$',fontsize=15,)
+plt.show()
+plt.subplot(3,4,6)
+number=str('010')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console2/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-0.75,1.2,r'$\Omega_pt=200$')
+plt.xlim((-1, 1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.show()
+
+plt.subplot(3,4,7)
+number=str('059')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console2/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.text(-1,1.2,r'$\Omega_pt=20000$')
+plt.xlim((-1.5, 2.5))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.show()
+
+
+plt.subplot(3,4,9)
+number=str('000')
+numbers=list(number)
+
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console3/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+plt.xlabel(r'$V_\parallel(V_A)$',fontsize=15,loc='center')
+
+plt.text(-0.75,1.2,r'$\Omega_pt=0$')
+plt.xlim((-1, 1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.ylabel(r'$V_\perp(V_A)$',fontsize=15,)
+
+plt.show()
+
+plt.subplot(3,4,10)
+number=str('010')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console3/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+
+plt.text(-0.9,1.4,r'$\Omega_pt=200$')
+plt.xlabel(r'$V_\parallel(V_A)$',fontsize=15,loc='center')
+plt.xlim((-1, 1))  # x参数范围
+plt.ylim((-0, 1.5)) 
+plt.show()
+
+plt.subplot(3,4,11)
+number=str('059')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console3/V_all_n'+number+'.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6',]
+data=read_csv(test,names=names,delim_whitespace=True)
+pltdata[i,:,:]=data
+vpara[i,:]=np.sqrt(pltdata[i,:,2]**2+pltdata[i,:,3]**2)
+plt.scatter(pltdata[i,:,4],vpara[i,:],c='black', marker='o')
+
+plt.text(-46,46,r'$\Omega_pt=20000$')
+plt.xlabel(r'$V_\parallel(V_A)$',fontsize=15,loc='center')
+plt.xlim((-50, 50))   # x参数范围
+plt.ylim((-0, 50)) 
+plt.show()
+
+plt.subplot(3,4,4)
+number=str('059')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console1/single.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6','7']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+data['2']=np.sqrt(data['2']**2+data['3']**2)
+
+
+plt.plot(data['4'][0:70000],data['2'][0:70000])
+plt.plot(data['4'][0:1],data['2'][0:1],'r--*',markersize=8)
+plt.plot(data['4'][69999:70000],data['2'][69999:70000],'k--^',markersize=8)
+plt.text(-1.5,2.5,r'$\Omega_pt=700$')
+plt.xlim((-2,2))  # x参数范围
+plt.ylim((-0, 3)) 
+plt.show()
+
+
+plt.subplot(3,4,8)
+number=str('059')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console2/single.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6','7']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+data['2']=np.sqrt(data['2']**2+data['3']**2)
+
+
+plt.plot(data['4'][0:70000],data['2'][0:70000])
+plt.plot(data['4'][0:1],data['2'][0:1],'r--*',markersize=8)
+plt.plot(data['4'][69999:70000],data['2'][69999:70000],'k--^',markersize=8)
+plt.text(-1.5,2.5,r'$\Omega_pt=700$')
+
+plt.xlim((-2,2))  # x参数范围
+plt.ylim((-0, 3)) 
+plt.show()
+
+
+plt.subplot(3,4,12)
+number=str('059')
+numbers=list(number)
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console3/single.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6','7']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+data['2']=np.sqrt(data['2']**2+data['3']**2)
+
+
+plt.plot(data['4'][0:70000],data['2'][0:70000])
+plt.plot(data['4'][0:1],data['2'][0:1],'r--*',markersize=8)
+plt.plot(data['4'][69999:70000],data['2'][69999:70000],'k--^',markersize=8)
+plt.text(-1.5,2.5,r'$\Omega_pt=700$')
+plt.xlim((-2,2))  # x参数范围
+plt.ylim((-0, 3)) 
+
+plt.xlabel(r'$V_\parallel(V_A)$',fontsize=15,loc='center')
+
+
+plt.show()
+
