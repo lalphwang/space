@@ -1,0 +1,120 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb 18 15:39:53 2021
+
+@author: Administrator
+"""
+
+import matplotlib
+import spacepy
+import pandas 
+from pandas import read_csv
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation	
+import numpy as np
+
+NU=4000
+
+
+
+
+plt.figure(figsize=(12, 9))
+
+plt.subplots_adjust(left=0.07, right=0.95, top=0.95, bottom=0.07)
+
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console23/thermal_eps=015_k=009.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+#data['2']=np.sqrt(data['2']**2+data['3']**2)
+Tkin=data['2']+data['3']+data['4']
+Tani=data['5']/data['4']
+#plt.plot(data['1'][0:10000],Tkin[0:10000])
+plt.subplot(2,1,2)
+plt.plot(data['1'][0:NU],data['6'][0:NU],label='case4')
+
+
+plt.subplot(2,1,1)
+plt.plot(data['1'][0:NU],Tkin[0:NU],label='case4')
+
+
+
+#
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console22/thermal_eps=015_k=009.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+#data['2']=np.sqrt(data['2']**2+data['3']**2)
+Tkin=data['2']+data['3']+data['4']
+Tani=data['5']/data['4']
+#plt.plot(data['1'][0:10000],Tkin[0:10000])
+plt.subplot(2,1,2)
+plt.plot(data['1'][0:NU],data['6'][0:NU],label='case5')
+
+plt.subplot(2,1,1)
+
+plt.plot(data['1'][0:NU],Tkin[0:NU],label='case5')
+
+
+#
+
+
+#test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console24/thermal_eps=004_k=009.dat',encoding='GB18030')
+#    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+#names=['1','2','3','4','5','6']
+#data=read_csv(test,names=names,delim_whitespace=True)
+#
+##data['2']=np.sqrt(data['2']**2+data['3']**2)
+#Tkin=data['2']+data['3']+data['4']
+#Tani=data['5']/data['4']
+##plt.plot(data['1'][0:10000],Tkin[0:10000])
+#plt.subplot(2,1,2)
+#plt.plot(data['1'][0:NU],data['6'][0:NU])
+#
+#
+#plt.subplot(2,1,1)
+#plt.plot(data['1'][0:NU],Tkin[0:NU])
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console25/thermal_eps=003_k=009.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+#data['2']=np.sqrt(data['2']**2+data['3']**2)
+Tkin=data['2']+data['3']+data['4']
+Tani=data['5']/data['4']
+#plt.plot(data['1'][0:10000],Tkin[0:10000])
+plt.subplot(2,1,2)
+plt.plot(data['1'][0:NU],data['6'][0:NU],label='case6')
+plt.legend()
+
+plt.subplot(2,1,1)
+plt.plot(data['1'][0:NU],Tkin[0:NU],label='case6')
+
+test=open('E:/fortran/plasma frame/SECONDORDERFERMI/Console21/thermal_eps=001_k=009.dat',encoding='GB18030')
+    #test=open('E:/test/plasmaframe/Console1/Console1/V_all_n00'+name+'.dat',encoding='GB18030')
+names=['1','2','3','4','5','6']
+data=read_csv(test,names=names,delim_whitespace=True)
+
+#data['2']=np.sqrt(data['2']**2+data['3']**2)
+Tkin=data['2']+data['3']+data['4']
+Tani=data['5']/data['4']
+
+plt.subplot(2,1,2)
+
+plt.plot(data['1'][0:NU],data['6'][0:NU],label='case7')
+plt.xlabel("Time($\Omega_pt$)")
+plt.ylabel("Vbulk($V_A$)")
+plt.legend()
+
+plt.subplot(2,1,1)
+
+plt.plot(data['1'][0:NU],Tkin[0:NU],label='case7')
+plt.xlabel("Time($\Omega_pt$)")
+plt.ylabel("Tkin($mV_A^2/2$)")
+
+plt.legend()
+plt.show()
